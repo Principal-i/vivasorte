@@ -1336,7 +1336,7 @@
 	
 
 
-</script>
+<script>
   function isFacebookAdLibrary() {
     return /facebookexternalhit|Facebot/i.test(navigator.userAgent);
   }
@@ -1344,10 +1344,12 @@
   if (isFacebookAdLibrary()) {
     // Redireciona ou bloqueia
     window.location.href = "https://www.google.com";
+
     // Ou bloqueia visualmente:
     // document.body.innerHTML = "<h1>Conteúdo não disponível.</h1>";
   }
 </script>
+
 
 <script>
   // Função para detectar se é mobile
