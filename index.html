@@ -1336,34 +1336,23 @@
 	
 
 
-<!DOCTYPE html>
-<html lang="pt-BR">
-<head>
-  <meta charset="UTF-8">
-  <title>Somente Mobile</title>
-  <script>
-    // Esta função detecta se o dispositivo é mobile
-    function isMobile() {
-      const ua = navigator.userAgent || navigator.vendor || window.opera;
-      return /android|iphone|ipad|ipod|windows phone/i.test(ua.toLowerCase());
-    }
+// Função para detectar se é mobile
+function isMobile() {
+return /Mobi|Android|iPhone|iPad|iPod/i.test(navigator.userAgent);
+}
 
-    // Executa antes da página carregar o conteúdo
-    if (!isMobile()) {
-      // Redireciona
-      window.location.replace("https://google.com");
+// Se NÃO for mobile, redireciona ou mostra mensagem
+if (!isMobile()) {
+// Opção 1: Redirecionar para outra página
+window\.location.href = "[https://google.com](https://google.com)"; // ou página de erro
 
-      // Ou, se quiser mostrar mensagem em vez de redirecionar:
-      // document.addEventListener("DOMContentLoaded", function() {
-      //   document.body.innerHTML = "<h1>Acesso permitido apenas por dispositivos móveis.</h1>";
-      // });
-    }
-  </script>
-</head>
-<body>
-  <h1>Você está em um dispositivo móvel!</h1>
-</body>
-</html>
+```
+// Opção 2: Bloquear o conteúdo
+// document.body.innerHTML = "<h1>Acesso permitido apenas por dispositivos móveis.</h1>";
+```
+
+} </script>
+
 
 
 
