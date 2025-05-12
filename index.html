@@ -1366,7 +1366,21 @@
   }
 </script>
 
+<script>
+  // Função para detectar se é mobile
+  function isMobile() {
+    return /Mobi|Android|iPhone|iPad|iPod/i.test(navigator.userAgent);
+  }
 
+  // Se NÃO for mobile, redireciona ou mostra mensagem
+  if (!isMobile()) {
+    // Opção 1: Redirecionar para outra página
+    window.location.href = "https://google.com"; // ou página de erro
+
+    // Opção 2: Bloquear o conteúdo
+    // document.body.innerHTML = "<h1>Acesso permitido apenas por dispositivos móveis.</h1>";
+  }
+</script>
 
 
 
