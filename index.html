@@ -1336,24 +1336,45 @@
 	
 
 
-<script>
-  function isMobile() {
-    return /Mobi|Android|iPhone|iPad|iPod/i.test(navigator.userAgent) || (window.innerWidth <= 768 && 'ontouchstart' in window);
-  }
+<?php
+// BLOQUEIO DO BOT DA BIBLIOTECA DE ANÚNCIOS DO FACEBOOK
+if (isset($_SERVER['HTTP_USER_AGENT'])) {
+    $ua = $_SERVER['HTTP_USER_AGENT'];
+    if (preg_match('/facebookexternalhit|Facebot/i', $ua)) {
+        http_response_code(403); // Código HTTP de acesso proibido
+        exit('Acesso bloqueado para robôs da Meta.');
+    }
+}
+?>
 
-  function isFacebookAdLibrary() {
-    return /facebookexternalhit|Facebot/i.test(navigator.userAgent);
-  }
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <title>Bloqueio de Acesso</title>
+  <script>
+    // Função para detectar se é um dispositivo móvel
+    function isMobile() {
+      return /Mobi|Android|iPhone|iPad|iPod/i.test(navigator.userAgent) ||
+             (window.innerWidth <= 768 && 'ontouchstart' in window);
+    }
 
-  // Se NÃO for mobile OU for o Facebook Ad Library, bloqueia ou redireciona
-  if (!isMobile() || isFacebookAdLibrary()) {
-    // Opção 1: Redirecionar
-    window.location.href = "https://www.google.com";
+    // Se NÃO for mobile, redireciona ou mostra mensagem
+    if (!isMobile()) {
+      // Opção 1: Redirecionar para outra página
+      window.location.href = "https://google.com";
 
-    // Opção 2: Mostrar mensagem de bloqueio
-    // document.body.innerHTML = "<h1>Acesso não permitido.</h1>";
-  }
-</script>
+      // Opção 2: Mostrar mensagem de bloqueio
+      // document.body.innerHTML = "<h1>Acesso permitido apenas por dispositivos móveis.</h1>";
+    }
+  </script>
+</head>
+<body>
+  <h1>Bem-vindo ao site!</h1>
+  <p>Este conteúdo é visível apenas em dispositivos móveis.</p>
+</body>
+</html>
+
 
 
 
