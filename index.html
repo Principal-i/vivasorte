@@ -130,14 +130,14 @@
   
   
       <div class="sorteio-date w-100 text-center">
-        <h1>Sorteio HOJE <span style="background-color: #FF0000" id="contador"> 29/05/2025 </span> por apenas <span style="background-color: #2f4eb5;">R$0,99</span> </h1>
+        <h1>Sorteio HOJE <span style="background-color: #FF0000" id="contador"> 31/05/2025 </span> por apenas <span style="background-color: #2f4eb5;">R$0,99</span> </h1>
       </div>
   
   
 <script>
   function atualizarContador() {
     var span = document.getElementById('contador');
-    span.textContent = '29/05/2025';
+    span.textContent = '31/05/2025';
   }
 
   atualizarContador();
@@ -318,8 +318,8 @@
           var valorAtual = parseInt(input.value);
           if (valorAtual < 100) {
               if (valorAtual === 30) {
-                  input.value = 20;
-              } else if (valorAtual === 20) {
+                  input.value = 15;
+              } else if (valorAtual === 15) {
                   input.value = 30;
               } else if (valorAtual === 30) {
                   input.value = 40;
@@ -337,7 +337,7 @@
       function decrementar() {
           var input = document.getElementById('numero');
           var valorAtual = parseInt(input.value);
-          if (valorAtual > 20) {
+          if (valorAtual > 15) {
               if (valorAtual === 100) {
                   input.value = 70;
               } else if (valorAtual === 70) {
@@ -347,7 +347,7 @@
               } else if (valorAtual === 40) {
                   input.value = 30;
               } else if (valorAtual === 30) {
-                  input.value = 20;
+                  input.value = 15;
               }
           }
           highlightButton();
@@ -367,7 +367,7 @@
               if (valorBotao === valorAtual) {
                   botao.classList.add('cota-selected');
                   switch (valorBotao) {
-                      case 20:
+                      case 15:
                           link = "https://pay.compraseguraapayy.com/checkout/4dbe2974-bf2d-4c6e-bd79-e90b36c4229b";
                           break;
                       case 30:
